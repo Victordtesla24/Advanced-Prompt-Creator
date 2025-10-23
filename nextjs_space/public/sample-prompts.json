@@ -1,0 +1,23 @@
+
+{
+  "business_strategy": {
+    "title": "Business Strategy Report",
+    "prompt": "Create a comprehensive business report with the following requirements:\n- Executive summary highlighting key findings\n- Market analysis with competitor comparison\n- Financial projections for next 3 years\n- Risk assessment and mitigation strategies\n- Implementation roadmap with timelines\n\nSuccess Criteria:\n1. Report must be data-driven and actionable\n2. Include visual charts and graphs\n3. Provide specific recommendations\n4. Address stakeholder concerns\n5. Maintain professional presentation format"
+  },
+  "technical_docs": {
+    "title": "API Documentation",
+    "prompt": "Develop API documentation with these specifications:\n- Complete endpoint reference\n- Authentication requirements\n- Request/response examples\n- Error handling guide\n- Integration tutorials\n\nRequirements:\n- Clear and concise explanations\n- Code samples in multiple languages\n- Interactive testing capability\n- Version control tracking\n- Developer-friendly format"
+  },
+  "educational_content": {
+    "title": "Learning Module Design",
+    "prompt": "Design a learning module about machine learning with:\n- Conceptual explanations for beginners\n- Hands-on coding exercises\n- Real-world case studies\n- Assessment questions\n- Additional resources\n\nObjectives:\n- Make complex concepts accessible\n- Provide practical experience\n- Enable self-paced learning\n- Include progress tracking\n- Offer certification pathway"
+  },
+  "creative_writing": {
+    "title": "Creative Story Development",
+    "prompt": "Write a compelling short story with these elements:\n- Engaging protagonist with clear motivation\n- Well-developed setting and atmosphere\n- Rising tension and conflict\n- Satisfying resolution\n- Themes of personal growth\n\nSuccess Criteria:\n1. Story length: 2000-3000 words\n2. Include dialogue and description\n3. Maintain consistent point of view\n4. Create emotional connection with reader\n5. Demonstrate character development"
+  },
+  "data_analysis": {
+    "title": "Data Analysis Report",
+    "prompt": "Analyze sales data and create insights report including:\n- Data quality assessment\n- Trend identification and patterns\n- Statistical significance testing\n- Predictive modeling recommendations\n- Actionable business insights\n\nRequirements:\n- Use appropriate statistical methods\n- Visualize key findings\n- Explain methodology clearly\n- Address data limitations\n- Provide confidence intervals\n\nSuccess Criteria:\n1. Comprehensive data exploration\n2. Valid statistical analysis\n3. Clear visualizations\n4. Practical recommendations\n5. Executive summary for stakeholders"
+  }
+}

@@ -1,0 +1,25 @@
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"  # Changed from weekly to monthly to reduce PR noise
+    open-pull-requests-limit: 5
+    reviewers:
+      - "Victordtesla24"
+    labels:
+      - "dependencies"
+      - "automated"
+    # Group dependency updates to reduce PR count
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"

@@ -1,0 +1,118 @@
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+*.log
+
+# Next.js
+/.next/
+/out/
+.next
+next-env.d.ts
+
+# Production
+/build
+/dist
+
+# Environment Variables
+.env
+.env*.local
+.env.development
+.env.production
+.env.test
+!.env.example
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+.nyc_output
+coverage/
+*.lcov
+
+# Build artifacts
+.cache
+.parcel-cache
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test results
+test_result.json
+test-results/
+ai-enhancement-test-results.json
+ai-enhancement-structure-test-report.json
+ai-enhancement-manual-test-results-*.json
+AI_ENHANCEMENT_MANUAL_TEST_REPORT_*.md
+
+# Lock files (keep yarn.lock)
+package-lock.json
+pnpm-lock.yaml
+
+# Abacus.AI specific
+.abacus/
+abacus.config.json
+
+# Security - NEVER commit these
+*.key
+*.pem
+*.p12
+secrets/
+credentials/
+
+# User uploads
+/uploads
+
+# Reports (optional - comment out if you want to commit reports)
+# *_REPORT.md
+# *_REPORT.pdf

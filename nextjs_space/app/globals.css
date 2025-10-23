@@ -1,0 +1,364 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* C-Suite Executive Color Palette - Professional Navy Blue Theme */
+  --bg-main: #ffffff; /* Pure White - NO YELLOW */
+  --bg-card: #f8fafc; /* Off White */
+  --text-primary: #1f2937; /* Charcoal */
+  --text-secondary: #6b7280; /* Gray */
+  --border-color: #e5e7eb;
+  --success: #059669;
+  --error: #dc2626;
+  --warning: #0284c7; /* Professional Blue - NO YELLOW */
+  --info: #1e3a8a;
+  
+  /* Shadcn HSL variables (used by Tailwind) - CORRECTED HSL FORMAT */
+  --background: 210 20% 98%;  /* Very light blue-gray (almost white) - NO YELLOW */
+  --foreground: 222 47% 11%;  /* Dark gray for text */
+  --card: 0 0% 100%;  /* Pure white */
+  --card-foreground: 222 47% 11%;  /* Dark gray for text */
+  --popover: 0 0% 100%;  /* Pure white */
+  --popover-foreground: 222 47% 11%;  /* Dark gray for text */
+  --primary: 221 83% 53%;  /* Professional blue */
+  --primary-foreground: 0 0% 100%;  /* White text */
+  --secondary: 151 55% 41%;  /* Professional green */
+  --secondary-foreground: 0 0% 100%;  /* White text */
+  --muted: 210 20% 98%;  /* Light blue-gray - NO YELLOW */
+  --muted-foreground: 215 16% 47%;  /* Medium gray */
+  --accent: 220 14% 96%;  /* Very light blue - NO YELLOW */
+  --accent-foreground: 222 47% 11%;  /* Dark gray for text */
+  --destructive: 0 84% 60%;  /* Red for errors */
+  --destructive-foreground: 0 0% 100%;  /* White text */
+  --border: 220 13% 91%;  /* Light gray border */
+  --input: 220 13% 91%;  /* Light gray input border */
+  --ring: 221 83% 53%;  /* Blue focus ring */
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: var(--border-color);
+}
+
+html, body {
+  background-color: #ffffff !important;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: #ffffff !important;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out both;
+  }
+  
+  .animate-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animate-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    }
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Hover glow effect */
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  
+  /* Custom button styles - C-Suite Professional Gradients */
+  .btn-primary {
+    background: linear-gradient(135deg, #2563EB 0%, #0891B2 100%);
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35), 0 2px 4px rgba(8, 145, 178, 0.2);
+  }
+  
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* C-Suite Professional Responsive Design */
+
+/* Mobile First (320px - 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Touch-friendly buttons */
+  button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Full-width primary actions on mobile */
+  .btn-primary-mobile-full {
+    width: 100%;
+  }
+  
+  /* Stack cards vertically */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 720px;
+  }
+}
+
+/* Desktop Professional Layout (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1200px;
+  }
+  
+  /* C-Suite two-column layout for content */
+  .desktop-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Wide Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Dark Mode Support */
+.dark {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #0ea5e9;
+  
+  /* Shadcn HSL variables for dark mode - CORRECTED HSL FORMAT */
+  --background: 222 47% 11%;  /* Dark blue-gray - NO YELLOW */
+  --foreground: 210 20% 98%;  /* Very light gray for text */
+  --card: 217 33% 17%;  /* Dark blue-gray card */
+  --card-foreground: 210 20% 98%;  /* Light text */
+  --popover: 217 33% 17%;  /* Dark blue-gray popover */
+  --popover-foreground: 210 20% 98%;  /* Light text */
+  --primary: 217 91% 60%;  /* Bright blue */
+  --primary-foreground: 210 20% 98%;  /* Light text */
+  --secondary: 151 55% 41%;  /* Green accent */
+  --secondary-foreground: 210 20% 98%;  /* Light text */
+  --muted: 217 33% 17%;  /* Dark blue-gray - NO YELLOW */
+  --muted-foreground: 215 20% 65%;  /* Medium light gray */
+  --accent: 217 33% 17%;  /* Dark blue - NO YELLOW */
+  --accent-foreground: 210 20% 98%;  /* Light text */
+  --destructive: 0 84% 60%;  /* Red for errors */
+  --destructive-foreground: 210 20% 98%;  /* Light text */
+  --border: 217 33% 23%;  /* Dark border */
+  --input: 217 33% 23%;  /* Dark input border */
+  --ring: 217 91% 60%;  /* Blue focus ring */
+  
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.dark .bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Smooth transitions for theme changes */
+body, .bg-gradient-to-br {
+  transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+}
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* UR-001: All yellow backgrounds removed - Professional color palette */
+/* Cache-bust: October 21, 2025 - Complete yellow removal confirmed */
+/* NO YELLOW COLORS - Only professional blue and white */
