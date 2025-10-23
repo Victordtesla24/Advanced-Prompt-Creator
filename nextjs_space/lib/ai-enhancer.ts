@@ -2,6 +2,7 @@
 // lib/ai-enhancer.ts
 
 import { loadAPIConfig, getAPIEndpoint, type APIConfig } from './ai-config';
+import { parseAIError, showAIError, retryWithBackoff } from './ai-error-handler';
 
 export interface AIEnhancementResult {
   success: boolean;
@@ -40,17 +41,17 @@ export async function enhanceWithAI(
       fallback: true
     };
   }
-  
+
   try {
-    // Call appropriate provider
-    const result = await callAIProvider(
-      config,
-      ruleBasedOutput,
-      originalInput
+    // Use retry logic for retryable errors
+    const result = await retryWithBackoff(
+      () => callAIProvider(config, ruleBasedOutput, originalInput),
+      3,
+      1000
     );
-    
+
     const processingTime = Date.now() - startTime;
-    
+
     return {
       success: true,
       enhancedPrompt: result.content,
@@ -60,15 +61,19 @@ export async function enhanceWithAI(
       model: config.model,
       fallback: false
     };
-    
   } catch (error: any) {
     const processingTime = Date.now() - startTime;
-    
-    console.error('AI enhancement error:', error);
-    
+    const aiError = parseAIError(error);
+    console.error('AI enhancement error:', aiError);
+    // Show a toast error in UI if applicable
+    try {
+      showAIError(aiError);
+    } catch (_) {
+      // ignore toast errors in non-browser environments
+    }
     return {
       success: false,
-      error: error.message || 'AI enhancement failed',
+      error: aiError.userMessage,
       processingTime,
       provider: config.provider,
       model: config.model,
